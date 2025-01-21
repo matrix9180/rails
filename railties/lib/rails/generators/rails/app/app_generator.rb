@@ -271,6 +271,7 @@ module Rails
         active_storage: !options[:skip_active_storage],
         dev: options[:dev],
         node: using_node?,
+        bun: using_bun?,
         app_name: app_name,
         skip_solid: options[:skip_solid],
         pretend: options[:pretend]

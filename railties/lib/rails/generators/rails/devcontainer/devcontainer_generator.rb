@@ -23,6 +23,9 @@ module Rails
       class_option :node, type: :boolean, default: false,
                    desc: "Include configuration for Node"
 
+      class_option :bun, type: :boolean, default: false,
+                   desc: "Include configuration for Bun"
+
       class_option :dev, type: :boolean, default: false,
                     desc: "For applications pointing to a local Rails checkout"
 
@@ -112,6 +115,7 @@ module Rails
 
           @features["ghcr.io/rails/devcontainer/features/activestorage"] = {} if options[:active_storage]
           @features["ghcr.io/devcontainers/features/node:1"] = {} if options[:node]
+          @features["ghcr.io/michidk/devcontainers-features/bun:1"] = {} if options[:bun]
           @features["ghcr.io/devcontainers/features/docker-outside-of-docker:1"] = {} if options[:kamal]
 
           @features.merge!(database.feature) if database.feature
